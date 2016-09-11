@@ -1,0 +1,42 @@
+{
+   "Version" : 0.2,
+   "ModuleName" : "RandPASS",
+   "Description" : "本软件用于根据设置的规则随机生成相应的安全密码，达到防猜、增加暴力破解难度的目的。",
+   "Options" : {
+      "Warnings" : "All",
+      "TargetType" : "Executable",
+      "TargetFileName" : "RandPASS",
+      "Libraries" : [
+         "ecere"
+      ]
+   },
+   "Configurations" : [
+      {
+         "Name" : "Debug",
+         "Options" : {
+            "Debug" : true,
+            "Optimization" : "None",
+            "PreprocessorDefinitions" : [
+               "_DEBUG"
+            ],
+            "FastMath" : false
+         }
+      },
+      {
+         "Name" : "Release",
+         "Options" : {
+            "Debug" : false,
+            "Optimization" : "Speed",
+            "FastMath" : true
+         }
+      }
+   ],
+   "Files" : [
+      "randWindow.ec",
+      "resources.rc"
+   ],
+   "ResourcesPath" : "",
+   "Resources" : [
+      "images/logo.png"
+   ]
+}
