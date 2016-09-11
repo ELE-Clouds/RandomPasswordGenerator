@@ -1,6 +1,6 @@
 {
   "name": "RandomPasswordGenerator",
   "tagline": "随着网络技术的发展，越来越多的服务和软件需要我们去创建帐号与密码。同时由于密码的破解越来越猖獗，给我们创建一个安全而又不重复的密码带来了困扰。由此，我们带来了“随机密码生成器（Random Passowrd Generator）”，虽然不能百分之百为客户解决问题，但在一定程度上提高了安全性，增加了密码破解的难度。",
-  "body": "### 功能简介\r\n\r\n本工具将根据用户设置，将密码按头部、中部、尾部三部分分别进行随机生成动作。主要用于防止猜测型硬解密码。以及增加暴力破解的难度。可同时生成多条密码，并对密码强度进行检测，方便用户判断与选择。\r\n<br>\r\n可设参数：<br>\r\n1、可分别对密码头部、中部、尾部进行设置；<br>\r\n2、密码长度可设固定长度与在一定范围内随机长度；<br>\r\n3、密码字符可选择（小写字母、大写字母、数字、特殊字符）；<br>\r\n4、具体特殊字符可设置；<br>\r\n5、密码强度可设置。<br>\r\n\r\n\r\n\r\n\r\n### 更新日志<br>\r\n\r\n创建中……<br>\r\n",
+  "body": "\r\n![普通密码](https://github.com/ELE-Clouds/RandomPasswordGenerator/blob/gh-pages/images/randpass-1.png)<br>\r\n![手势密码](https://github.com/ELE-Clouds/RandomPasswordGenerator/blob/gh-pages/images/randpass-2.png)<br>\r\n<br>\r\n***<br>\r\n### 功能简介\r\n\r\n本工具将根据用户设置，将密码按头部、中部、尾部三部分分别进行随机生成动作。主要用于防止猜测型硬解密码。以及增加暴力破解的难度。可同时生成多条密码，并对密码强度进行检测，方便用户判断与选择。\r\n<br>\r\n可设参数：<br>\r\n1、可分别对密码头部、中部、尾部进行设置；<br>\r\n2、密码长度可设固定长度与在一定范围内随机长度；<br>\r\n3、密码字符可选择（小写字母、大写字母、数字、特殊字符）；<br>\r\n4、具体特殊字符可设置；<br>\r\n5、密码强度可设置。<br>\r\n\r\n\r\n\r\n\r\n### 更新日志<br>\r\n\r\n创建中……<br>\r\n",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
