@@ -1,4 +1,23 @@
+/*************************************************
+  文件名：randWindow.ec
+  Copyright (C), 2016, ELE-Clouds.All rights reserved.
+  作者：ELE-Clouds
+  日期：2016年8月31日
+  版本：V0.01
+  描述:           // 用于详细说明此程序文件完成的主要功能，与其他模块
+                  // 或函数的接口，输出值、取值范围、含义及参数间的控
+                  // 制、顺序、独立或依赖等关系
+  主要函数列表:   //每条记录应包括函数名及功能简要说明
+    1. ....
+  修改历史记录：: //每条修改记录应包括修改日期、修改者及修改内容简述
+    1.修改日期:
+       修改人:
+       修改内容:
+    2. ...
+*************************************************/
+
 import "ecere"
+import "randpassword"
 
 class mainwindow : Window
 {
@@ -132,10 +151,10 @@ class mainwindow : Window
       row.SetData(passField, "dddggdd");
       row.SetData(gradeField, "★★★★★");
 
-   }
+   }*/
 //------END--------
 
-*/
+
    //标签夹声明
    TabControl setTab{ this, background = formColor, tabCycle = false, anchor = { left = 5, top = 50, right = 5, bottom = 5 } };
    norTabItem norTabForm { setTab, background = formColor };
@@ -163,12 +182,7 @@ class mainwindow : Window
       bool NotifyClicked(Button button, int x, int y, Modifiers mods)
       {
 
-         //labX1.caption="★";
-         //labX2.caption="★";
-         //labX3.caption="★";
-         //labX4.caption="☆";
-         //labX5.caption="☆";
-         //listPass.OnChildAddedOrRemoved(,0);
+         
          return true;
       }
    };
@@ -324,7 +338,7 @@ class norTabItem:Tab
       }
    };
 
-   norTabItem111()
+   norTabItem()
    {
       DataRow row;
       listPass.AddField(numField);
@@ -333,7 +347,7 @@ class norTabItem:Tab
 
       row = listPass.AddRow();
       row.tag = 1;
-      row.SetData(numField, 1);
+/*      row.SetData(numField, 1);
       row.SetData(passField, "6#xmewMoAJdA$#oE");
       row.SetData(gradeField, "★★★★★");
 
@@ -342,7 +356,7 @@ class norTabItem:Tab
       row.SetData(numField, 2);
       row.SetData(passField, "BYbbVBCU$1U^0ggj");
       row.SetData(gradeField, "★★★★★");
-
+*/
    }
 };
 
@@ -384,7 +398,7 @@ class mobTabItem : Tab
       listGesturePass.AddField(passField);
       listGesturePass.AddField(gradeField);
 
-      row = listGesturePass.AddRow();
+/*      row = listGesturePass.AddRow();
       row.tag = 1;
       row.SetData(numField, 1);
       row.SetData(passField, "123456789");
@@ -395,7 +409,7 @@ class mobTabItem : Tab
       row.SetData(numField, 2);
       row.SetData(passField, "123658");
       row.SetData(gradeField, "★★★★★");
-
+*/
    }
 };
 
