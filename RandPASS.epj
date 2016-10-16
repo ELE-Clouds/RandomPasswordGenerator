@@ -33,10 +33,11 @@
    ],
    "Files" : [
       "randWindow.ec",
-      "resources.rc"
+      "resources.rc",
+      "randpassword.ec"
    ],
    "ResourcesPath" : "",
    "Resources" : [
-      "images/logo.png"
+      "images/Logo_PR.png"
    ]
 }
