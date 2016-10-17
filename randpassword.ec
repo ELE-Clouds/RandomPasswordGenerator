@@ -13,7 +13,7 @@
     1.修改日期:
        修改人:
        修改内容:
-    2. ...
+    2. ....
 *************************************************/
 import "ecere"
 
@@ -22,20 +22,22 @@ import "ecere"
 /*************************************************
   函数名称：Password     // 函数名称
   描述:                  // 函数功能、性能等的描述
+      根据参数设置生成一串随机密码。
   调用函数：             // 被本函数调用的函数清单
   被调用函数：          // 调用本函数的函数清单
   访问表:               // 被访问的表（此项仅对于牵扯到数据库操作的程序）
   修改表:               // 被修改的表（此项仅对于牵扯到数据库操作的程序）
   输入参数:               // 输入参数说明，包括每个参数的作
-                        // 用、取值说明及参数间关系。
+      无                  // 用、取值说明及参数间关系。
   输出参数:               // 对输出参数的说明。
   返回值:                  // 函数返回值的说明
+      pass     生成的随机密码字符串。
   其它说明:               // 其它说明
 *************************************************/
-String Password(int length[])
+String Password(int length)
 {
 
-   String pass = new char[GetRandom(length[1],length[2])];
+   String pass = new char[length];
    int i;
    for(i = 0; i < length; i++)
    {
@@ -48,8 +50,8 @@ String Password(int length[])
             //case 4:pass[i] = SpecialChar[GetRandom(0, 9)];break;   //字符数组，用于存放特殊字符
          }
    }
-   pass[i] = 0;
-   return pass;
+    pass[i] = 0;
+    return pass;
 }
 
 
@@ -67,7 +69,8 @@ String Password(int length[])
   返回值:                  // 函数返回值的说明
   其它说明:               // 其它说明
 *************************************************/
-class randpass
+
+/*class randpass
 {
    public:
       void setBigLetter(bool _bBigLetter){m_bBigLetter = _bBigLetter;};
@@ -87,14 +90,14 @@ class randpass
       }
       int getLenth[]()
       {
-         return m_iLenth[2];
+         return m_iLenth;
       }
       void setNumber(int _iNumber){m_iNumber = _iNumber;}
       int getNumber(){return m_iNumber;}
-
+*/
       /*************************************************
         函数名称：Randpass     // 函数名称
-        描述:                  // 函数功能、性能等的描述
+        描述:调用参数生成随机密码                  // 函数功能、性能等的描述
         调用函数：             // 被本函数调用的函数清单
         被调用函数：          // 调用本函数的函数清单
         访问表:               // 被访问的表（此项仅对于牵扯到数据库操作的程序）
@@ -105,34 +108,34 @@ class randpass
         返回值:                  // 函数返回值的说明
         其它说明:               // 其它说明
       *************************************************/
-      String Randpass()
+/*      String Randpass()
       {
          int i;
          for(i = 0;i < getNumber(); i++)
          {
-            String pass = Password(getLenth[]());
+ //           String pass = Password(getLenth[2]());
             //PrintLn(pass);
 
               //case 1:editBox1.contents=pass;break;
 
             //MessageBox {caption="提示",contents="dd"}.Modal();
-            delete pass;
+//            delete pass;
          }
          return 0;
       }
 
 
    private:
-      bool m_bBigLetter;        //大写字母，布尔值
-      bool m_bSmallLetter;      //小写字母，布尔值
-      bool m_bNum;           //数字，布尔值
-      String m_strSpecialSymbols; //特殊符号，字符串
-      String m_strFilterItem;         //排除字符串
-      int m_iLenth[2];                //密码长度
-      int m_iNumber;              //密码个数
+      bool m_bBigLetter;               //大写字母，布尔值
+      bool m_bSmallLetter;             //小写字母，布尔值
+      bool m_bNum;                     //数字，布尔值
+      String m_strSpecialSymbols;      //特殊符号，字符串
+      String m_strFilterItem;          //排除字符串
+      int m_iLenth[2];                 //密码长度
+      int m_iNumber;                   //密码个数
 
 };
-
+*/
 
 
 
