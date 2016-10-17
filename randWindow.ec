@@ -18,6 +18,10 @@
 
 import "ecere"
 import "randpassword"
+//import "string"
+
+//增加数据
+
 
 class mainwindow : Window
 {
@@ -31,7 +35,7 @@ class mainwindow : Window
    clientSize = { 640, 508 };
    anchor = { horz = -20, vert = -14 };
    dontAutoScrollArea = true;
-   icon = { ".\\images\\logo.png" };
+   icon = { ".\\images\\logo_PR.png" };
    moveable = true;
 
 
@@ -169,20 +173,25 @@ class mainwindow : Window
       bool OnPostCreate(void)       //创建列表内容
       {
          SelectRow(AddString("默认"));     //此表默认选中的意思，即程序打死后默认选中的是该项。
-         AddString("手动");                //向下添加列表项”手动“。
-         AddString("OICQ");
+         //AddString("手动");                //向下添加列表项”手动“。
+         //AddString("OICQ");
 
          return true;      //此处改为返回"true"。
       }
    };
+
    Button butCreate
    {
       this, caption = $"生     成", size = { 194, 37 }, position = { 392, 8 };
-
+      
       bool NotifyClicked(Button button, int x, int y, Modifiers mods)
       {
+         //int i;
+         //for(i=1;i<10;i++)norTabItem::addTabItem(i);
+         norTabForm.addTabItem(10);
+         mobTabForm.addTabItem(10);
+         //MessageBox { caption="关于(About)", contents = Password(2) }.Modal();
 
-         
          return true;
       }
    };
@@ -195,11 +204,14 @@ class mainwindow : Window
 //-------------------
 
 
-
-class norTabItem:Tab
+//===普通密码功能===
+class norTabItem:Tab    //普通密码标签
 {
    caption = $"常规密码";
    background = formColor;
+
+   //void addTabItem(int _rTag,String _strPass,String _strGrade);    //表格列表增加函数
+
    //---------------------------
    //    表格
    //---------------------------
@@ -218,9 +230,9 @@ class norTabItem:Tab
 //==============
 // 标签页
 //--------------
-   Label groPassMain { groParameterSet, this, $" 密码主体 ", anchor = { left = 200, top = 50, right = 200, bottom = 5 }, isGroupBox = true };
-   Label groPassEnd { groParameterSet, this, $" 密码尾部 ", anchor = { left = 450, top = 50, right = 5, bottom = 5 },isGroupBox = true };
-   Label groPassHead { groParameterSet, this, $" 密码头部 ",anchor = { left = 5, top = 50, right = 450, bottom = 5 }, isGroupBox = true };
+   Label groPassHead { groParameterSet, this, $" 密码头部 ",anchor = { left = 5, top = 50, right = 440, bottom = 5 }, isGroupBox = true };
+   Label groPassMain { groParameterSet, this, $" 密码主体 ", anchor = { left = 220, top = 50, right = 225, bottom = 5 }, isGroupBox = true };
+   Label groPassEnd { groParameterSet, this, $" 密码尾部 ", anchor = { left = 440, top = 50, right = 5, bottom = 5 },isGroupBox = true };
    Label labPassQD { groParameterSet,this, $"密码强度：", background = formColor, 1, size = { 52, 13 }, position = { 64, 24 }};
    Label labX1
    {
@@ -294,40 +306,59 @@ class norTabItem:Tab
 */       return true;
       }
    };
-   Button cheFistBig { groPassHead, this, $"首字母大写", background = white, position = { 8, 24 }, isCheckbox = true };
+
+   //--首字符设置
+   //Label groPassMain { ,this, chrProName, anchor = { left = 200, top = 50, right = 200, bottom = 5 }, isGroupBox = true };
+   EditBox editHead { groPassHead, this, $"editBox5", position = { 88, 48 } };
    Button cheTCharHead { groPassHead, this, $"特殊字符", background = white, position = { 8, 48 }, isCheckbox = true };
-   Button cheZH { groParameterSet, this, $"繁体", background = white, position = { 464, 24 }, true, isCheckbox = true };
-   Button cheCH { groParameterSet, this, $"简体", background = white, position = { 408, 24 }, true, isCheckbox = true };
-   Label labLenEnd { groPassEnd, this, $"长度：", position = { 8, 72 } };
-   EditBox editLenEnd { groPassEnd, this, $"editBox2", size = { 38, 19 }, position = { 40, 72 }, toolTip = $"请输入3 - 100 之间的数，如果是范围，请按以下格式输入”最小值 - 最大值“。" };
-   Button cheTCharEnd { groPassEnd, this, $"特殊字符", background = white, size = { 74, 21 }, position = { 8, 48 }, isCheckbox = true };
-   Button cheJapan { groParameterSet, this, $"日文", background = white, position = { 520, 24 }, true, isCheckbox = true };
-   //Label groParameterSet { this, caption = $"  参数设置  ", inactive = false, anchor = { left = 5, top = 10, right = 5, bottom = 250 }, isGroupBox = true };
-   Label groParameterSet
-   {
-      this, caption = $"  参数设置  ", inactive = false, anchor = { left = 5, top = 10, right = 5, bottom = 250 }, isGroupBox = true;
-
-
-
-   };
-   EditBox editTMain { groPassMain, this, $"editBox5", position = { 88, 48 } };
-   EditBox editTEnd { groPassEnd, this, $"editBox6", size = { 46, 19 }, position = { 88, 48 } };
-   EditBox editTHead { groPassHead, this, $"editBox4", size = { 54, 19 }, position = { 80,48 } };
-   Label labAnd2 { groParameterSet, this, $"+", font = { "Tahoma", 20 }, position = { 422,90 } };
-   Label labAnd1 { groParameterSet, this, $"+", font = { "Tahoma", 20 }, position = { 172,90 } };
-   EditBox editLenHead { groPassHead, this, $"editBox3", size = { 38, 19 }, position = { 40, 72 } };
    Label labLenHead { groPassHead, this, $"长度：", position = { 8, 72 } };
+   EditBox editLenHead { groPassHead, this, $"editBox1", size = { 38, 19 }, position = { 48, 72 } };
+   Button cheCharNumHead { groPassHead, this, $"0 - 9", background = white, position = { 120, 24 }, isCheckbox = true };
+   Button cheCharBigHead { groPassHead, this, $"A - Z", background = white, position = { 64, 24 }, isCheckbox = true };
+   Button cheCharSmallHead { groPassHead, this, $"a - z", background = white, position = { 8, 24 }, isCheckbox = true };
+
+
+
+
+   //--密码主体设置
+   EditBox editTMain { groPassMain, this, $"editBox5", position = { 88, 48 } };
    Button cheTCharMain { groPassMain, this, $"特殊字符", background = white, position = { 8, 48 }, isCheckbox = true };
    Label labLenMain { groPassMain, this, $"长度：", position = { 8, 72 } };
    EditBox editLenMain { groPassMain, this, $"editBox1", size = { 38, 19 }, position = { 48, 72 } };
    Button cheCharNum { groPassMain, this, $"0 - 9", background = white, position = { 120, 24 }, isCheckbox = true };
    Button cheCharBig { groPassMain, this, $"A - Z", background = white, position = { 64, 24 }, isCheckbox = true };
    Button cheCharSmall { groPassMain, this, $"a - z", background = white, position = { 8, 24 }, isCheckbox = true };
-   Label groPassList { this, caption = $"  密码清单  ", anchor = { left = 5, top = 180, right = 5, bottom = 5 }, isGroupBox = true };
+
+
+
+   //--密码尾部设置
+   EditBox editTEnd { groPassEnd, this, $"editBox5", position = { 88, 48 } };
+   Button cheTCharEnd { groPassEnd, this, $"特殊字符", background = white, position = { 8, 48 }, isCheckbox = true };
+   Label labLenEnd { groPassEnd, this, $"长度：", position = { 8, 72 } };
+   EditBox editLenEnd { groPassEnd, this, $"editBox1", size = { 38, 19 }, position = { 48, 72 } };
+   Button cheCharNumEnd { groPassEnd, this, $"0 - 9", background = white, position = { 120, 24 }, isCheckbox = true };
+   Button cheCharBigEnd { groPassEnd, this, $"A - Z", background = white, position = { 64, 24 }, isCheckbox = true };
+   Button cheCharSmallEnd { groPassEnd, this, $"a - z", background = white, position = { 8, 24 }, isCheckbox = true };
+
+
+   //--备用设置
+   Button cheZH { groParameterSet, this, $"繁体", background = white, position = { 504, 24 }, true, isCheckbox = true };
+   Button cheCH { groParameterSet, this, $"简体", background = white, position = { 448, 24 }, true, isCheckbox = true };
+   Button cheJapan { groParameterSet, this, $"日文", background = white, position = { 560, 24 }, true, isCheckbox = true };
+   //Label groParameterSet { this, caption = $"  参数设置  ", inactive = false, anchor = { left = 5, top = 10, right = 5, bottom = 250 }, isGroupBox = true };
+   Label groParameterSet
+   {
+      this, caption = $"  参数设置  ", inactive = false, anchor = { left = 5, top = 10, right = 5, bottom = 250 }, isGroupBox = true;
+
+   };
+   Label labAnd1 { groParameterSet, this, $"+", font = { "Tahoma", 20 }, position = { 188,90 } };
+   Label labAnd2 { groParameterSet, this, $"+", font = { "Tahoma", 20 }, position = { 408,90 } };
+
+   Label groPassList { this, caption = $"  密码列表  ", anchor = { left = 5, top = 180, right = 5, bottom = 5 }, isGroupBox = true };
    ListBox listPass
    {
       groPassList, caption = $"listBox1", borderStyle = contour, background = mintCream,anchor = { left = 5, top = 20, right = 5, bottom = 5 }, rowHeight = 20, hasHeader = true;
-
+      
       bool NotifyActivate(Window window, bool active, Window previous)
       {
 //         listPass.AddField(nameField);
@@ -338,29 +369,49 @@ class norTabItem:Tab
       }
    };
 
-   norTabItem()
+   norTabItem()      //构造函数，创建列表中的各列
    {
-      DataRow row;
       listPass.AddField(numField);
       listPass.AddField(passField);
       listPass.AddField(gradeField);
-
-      row = listPass.AddRow();
-      row.tag = 1;
-/*      row.SetData(numField, 1);
-      row.SetData(passField, "6#xmewMoAJdA$#oE");
-      row.SetData(gradeField, "★★★★★");
-
-      row = listPass.AddRow();
-      row.tag = 2;
-      row.SetData(numField, 2);
-      row.SetData(passField, "BYbbVBCU$1U^0ggj");
-      row.SetData(gradeField, "★★★★★");
-*/
    }
+   //显示产生的密码
+   void addTabItem(int iNum)    //iNum 为密码的个数，即显示行数。
+   {
+      DataRow row;
+      int i;
+      listPass.Clear();               //清空显示列表。
+      for(i=1;i <= iNum;i++)
+      {
+         row = listPass.AddRow();
+         row.tag = i;
+         row.SetData(numField, i);
+         row.SetData(passField, Password(50));
+         row.SetData(gradeField, "★★★★★");
+      }
+
+   }
+
+   bool OnActivate(bool active, Window previous, bool * goOnWithActivation, bool direct)
+   {
+      if(active)
+      {
+         //MessageBox{caption=$"提示",contents = "普通密码标签被激活！"}.Modal();
+
+      }
+      else
+      {
+         //MessageBox{caption=$"提示",contents = "普通密码标签失去焦点！"}.Modal();
+      }
+      return true;
+   }
+
+
 };
 
-class mobTabItem : Tab
+
+//===手势密码功能===
+class mobTabItem : Tab     //手势密码标签
 {
    caption = $"手势密码";
    background = formColor;
@@ -393,24 +444,27 @@ class mobTabItem : Tab
 
    mobTabItem()
    {
-      DataRow row;
       listGesturePass.AddField(numField);
       listGesturePass.AddField(passField);
       listGesturePass.AddField(gradeField);
-
-/*      row = listGesturePass.AddRow();
-      row.tag = 1;
-      row.SetData(numField, 1);
-      row.SetData(passField, "123456789");
-      row.SetData(gradeField, "★★★★★");
-
-      row = listGesturePass.AddRow();
-      row.tag = 2;
-      row.SetData(numField, 2);
-      row.SetData(passField, "123658");
-      row.SetData(gradeField, "★★★★★");
-*/
    }
+
+   void addTabItem(int iNum)    //iNum 为密码的个数，即显示行数。
+   {
+      DataRow row;
+      int i;
+      listGesturePass.Clear();               //清空显示列表。
+      for(i=1;i <= iNum;i++)
+      {
+         row = listGesturePass.AddRow();
+         row.tag = i;
+         row.SetData(numField, i);
+         row.SetData(passField, Password(10));
+         row.SetData(gradeField, "★★★★★");
+      }
+
+   }
+   
 };
 
 mainwindow Mainwindow {};
