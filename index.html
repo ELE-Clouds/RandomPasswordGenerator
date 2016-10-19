@@ -1,83 +1,155 @@
-<!doctype html>
-<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
-<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on https://github.com/jonrohan -->
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
-  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
-  <link rel="stylesheet" href="stylesheets/github-dark.css">
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript" src="javascripts/script.js"></script>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-  <title>RandomPasswordGenerator</title>
-  <meta name="description" content="随着网络技术的发展，越来越多的服务和软件需要我们去创建帐号与密码。同时由于密码的破解越来越猖獗，给我们创建一个安全而又不重复的密码带来了困扰。由此，我们带来了“随机密码生成器（Random Passowrd Generator）”，虽然不能百分之百为客户解决问题，但在一定程度上提高了安全性，增加了密码破解的难度。">
+    <title>Random Password Generator by ELE-Clouds</title>
+  </head>
 
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-
-</head>
-
-<body>
-
-  <div class="wrapper">
+  <body>
     <header>
-      <h1 class="title">RandomPasswordGenerator</h1>
+      <div class="inner">
+        <h1>Random Password Generator</h1>
+        <h2>随着网络技术的发展，越来越多的服务和软件需要我们去创建帐号与密码。同时由于密码的破解越来越猖獗，给我们创建一个安全而又不重复的密码带来了困扰。由此，我们带来了“随机密码生成器（Random Passowrd Generator）”，虽然不能百分之百为客户解决问题，但在一定程度上提高了安全性，增加了密码破解的难度。</h2>
+        <a href="https://github.com/ELE-Clouds/RandomPasswordGenerator" class="button"><small>View project on</small> GitHub</a>
+      </div>
     </header>
-    <div id="container">
-      <p class="tagline">随着网络技术的发展，越来越多的服务和软件需要我们去创建帐号与密码。同时由于密码的破解越来越猖獗，给我们创建一个安全而又不重复的密码带来了困扰。由此，我们带来了“随机密码生成器（Random Passowrd Generator）”，虽然不能百分之百为客户解决问题，但在一定程度上提高了安全性，增加了密码破解的难度。</p>
-      <div id="main" role="main">
-        <div class="download-bar">
-        <div class="inner">
-          <a href="https://github.com/ELE-Clouds/RandomPasswordGenerator/tarball/master" class="download-button tar"><span>Download</span></a>
-          <a href="https://github.com/ELE-Clouds/RandomPasswordGenerator/zipball/master" class="download-button zip"><span>Download</span></a>
-          <a href="https://github.com/ELE-Clouds/RandomPasswordGenerator" class="code">View RandomPasswordGenerator on GitHub</a>
-        </div>
-        <span class="blc"></span><span class="trc"></span>
-        </div>
-        <article class="markdown-body">
-          <p><img src="images/randpass-1.png" alt="普通密码" height="300" width="300">&nbsp;&nbsp;
-<img src="images/randpass-2.png" alt="手势密码" height="300" width="300"><br>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <p><img src="https://github.com/ELE-Clouds/RandomPasswordGenerator/blob/gh-pages/images/randpass-1.png" alt="普通密码"><br>
+<img src="https://github.com/ELE-Clouds/RandomPasswordGenerator/blob/gh-pages/images/randpass-2.png" alt="手势密码"><br>
 <br>
 ***<br></p>
 
 <h3>
 <a id="功能简介" class="anchor" href="#%E5%8A%9F%E8%83%BD%E7%AE%80%E4%BB%8B" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>功能简介</h3>
 
-<p>本工具将根据用户设置，将密码按头部、中部、尾部三部分分别进行随机生成动作。主要用于防止猜测型硬解密码。以及增加暴力破解的难度。可同时生成多条密码，并对密码强度进行检测，方便用户判断与选择。
-<br>
-可设参数：<br>
-1、可分别对密码头部、中部、尾部进行设置；<br>
-2、密码长度可设固定长度与在一定范围内随机长度；<br>
-3、密码字符可选择（小写字母、大写字母、数字、特殊字符）；<br>
-4、具体特殊字符可设置；<br>
-5、密码强度可设置。<br></p>
+<p>本工具可根据用户设置，将密码按头部（左）、中部（中）、尾部（右）三部分分别进行随机生成动作。主要用于防止猜测型破解密码。以及增加暴力破解的难度。可同时生成多条密码，并对密码强度进行检测，方便用户判断与选择。
+<br></p>
+
+<p>下表为生成密码所需设置的参数，除密码强度外，均为必设项：</p>
+
+<table>
+  <tr>
+    <th>类别</th>
+    <th>位置</th>
+    <th>字符</th>
+    <th>位数</th>
+  </tr>
+  <tr>
+    <td rowspan="13">普通密码</td>
+    <td>密码强度</td>
+    <td>星级</td>
+    <td>1-5</td>
+  </tr>
+  <tr>
+    <td rowspan="4">左</td>
+    <td>大写字母</td>
+    <td>0-255</td>
+  </tr>
+  <tr>
+    <td>小写字母</td>
+    <td>0-255</td>
+  </tr>
+  <tr>
+    <td>数字</td>
+    <td>0-255</td>
+  </tr>
+  <tr>
+    <td>特殊字符</td>
+    <td>0-255</td>
+  </tr>
+  <tr>
+    <td rowspan="4">中</td>
+    <td>大写字母</td>
+    <td>0-255</td>
+  </tr>
+  <tr>
+    <td>小写字母</td>
+    <td>0-255</td>
+  </tr>
+  <tr>
+    <td>数字</td>
+    <td>0-255</td>
+  </tr>
+  <tr>
+    <td>特殊字符</td>
+    <td>0-255</td>
+  </tr>
+  <tr>
+    <td rowspan="4">右</td>
+    <td>大写字母</td>
+    <td>0-255</td>
+  </tr>
+  <tr>
+    <td>小写字母</td>
+        <td>0-255</td>
+  </tr>
+  <tr>
+    <td>数字</td>
+    <td>0-255</td>
+  </tr>
+  <tr>
+    <td>特殊字符</td>
+    <td>0-255</td>
+  </tr>
+
+  <tr colspan="4"></tr>
+  <tr>
+    <td rowspan="2">&gt;手势密码</td>
+    <td>密码强度</td>
+    <td>星级</td>
+    <td>1-5</td>
+  </tr>
+  <tr>
+    <td> </td>
+    <td>数字</td>
+    <td>3-9</td>
+  </tr>
+</table>
+
+<p>注意：
+1. 上表中字符、位数，同时可设置不被包含的字符；
+2. 字符位数是以范围的形式设置，若设为固定长度的值，则只需要将最小值与最大值设为相同即可；
+3. 密码强度设置时，只需要点击相应位置的星即可，设置好密码强度后，密码列表中将只显示符合设定密码强度削弱的密码清单；
+4. 当前参数设置可另存为密码模板，下次只需要调用模板即可完成参数设置。</p>
 
 <h3>
 <a id="更新日志" class="anchor" href="#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>更新日志<br>
 </h3>
 
 <p>创建中……<br></p>
-        </article>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/ELE-Clouds/RandomPasswordGenerator/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/ELE-Clouds/RandomPasswordGenerator/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/ELE-Clouds/RandomPasswordGenerator"></a> is maintained by <a href="https://github.com/ELE-Clouds">ELE-Clouds</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
       </div>
     </div>
-    <footer>
-      <div class="owner">
-      <p><a href="https://github.com/ELE-Clouds" class="avatar"><img src="https://avatars0.githubusercontent.com/u/20043036?v=3&amp;s=60" width="48" height="48"></a> <a href="https://github.com/ELE-Clouds">ELE-Clouds</a> maintains <a href="https://github.com/ELE-Clouds/RandomPasswordGenerator">RandomPasswordGenerator</a></p>
-
-
-      </div>
-      <div class="creds">
-        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
-      </div>
-    </footer>
-  </div>
-  <div class="current-section">
-    <a href="#top">Scroll to top</a>
-    <a href="https://github.com/ELE-Clouds/RandomPasswordGenerator/tarball/master" class="tar">tar</a><a href="https://github.com/ELE-Clouds/RandomPasswordGenerator/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
-    <p class="name"></p>
-  </div>
 
   
-</body>
+  </body>
 </html>
